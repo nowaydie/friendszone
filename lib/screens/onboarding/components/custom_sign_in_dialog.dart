@@ -8,13 +8,13 @@ Future<Object?> customSignInDialog(BuildContext context,
     barrierDismissible: true,
     barrierLabel: 'SignIn',
     context: context,
-    transitionDuration: const Duration(milliseconds: 2400),
+    transitionDuration: const Duration(milliseconds: 800),
     transitionBuilder: (context, animation, secondaryAnimation, child) {
       Tween<Offset> tween;
       tween = Tween(begin: const Offset(0, -1), end: Offset.zero);
       return SlideTransition(
         position: tween.animate(
-          CurvedAnimation(parent: animation, curve: Curves.bounceInOut),
+          CurvedAnimation(parent: animation, curve: Curves.easeInOutQuart),
         ),
         child: child,
       );
@@ -104,18 +104,6 @@ Future<Object?> customSignInDialog(BuildContext context,
                   )
                 ],
               ),
-              const Positioned(
-                bottom: -40,
-                left: 0,
-                right: 0,
-                child: CircleAvatar(
-                    radius: 16,
-                    backgroundColor: Color.fromARGB(255, 42, 42, 42),
-                    child: Icon(
-                      Icons.close,
-                      color: Colors.white,
-                    )),
-              )
             ],
           ),
         ),
